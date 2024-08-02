@@ -4,39 +4,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Examples - Prog-Lightbox</title>
 
+<h1>Usage examples</h1>
+
 <h2>Thumbnail anchor</h2>
 <prog-lightbox>
-    <a href="./img/photo-large.jpg">
-        <img src="./img/photo-thumbnail.jpg" alt>
-    </a>
+	<a href="./img/photo-large.jpg">
+		<img src="./img/photo-thumbnail" alt="Jake the sheep frolics in the lush pasture">
+	</a>
 </prog-lightbox>
+<pre><code>
+&lt;prog-lightbox&gt;
+  &lt;a href="./img/photo-large.jpg"&gt;
+    &lt;img src="./img/photo-thumbnail" alt="Jake the sheep frolics in the lush pasture"&gt;
+  &lt;/a&gt;
+&lt;/prog-lightbox&gt;
+</code></pre>
 
-<h2>Text anchor</h2>
+<h2>Text anchor (no <code>alt</code> text provided)</h2>
 <prog-lightbox>
-    <a href="./img/photo-large.jpg">
-        View the large photo
-    </a>
+	<a href="./img/photo-large.jpg">
+		View the large photo
+	</a>
 </prog-lightbox>
+<pre><code>
+&lt;prog-lightbox&gt;
+  &lt;a href="./img/photo-large.jpg"&gt;
+    View the large photo
+  &lt;/a&gt;
+&lt;/prog-lightbox&gt;
+</code></pre>
 
 <h2>Add <code>alt</code> text to dialog image</h2>
+<p>
+	By default, <code>prog-lightbox</code> will use the thumbnail's <code>alt</code> attribute value.
+	If no such thumbnail exists, please supply <code>alt</code> text for the dialog's image using the <code>alt</code>
+	attribute on <code>prog-lightbox</code>.
+</p>
 <prog-lightbox alt="Jake the sheep frolics in the lush pasture">
-    <a href="./img/photo-large.jpg">
-        View the large photo
-    </a>
+	<a href="./img/photo-large.jpg">
+		View the large photo
+	</a>
 </prog-lightbox>
+<pre><code>
+&lt;prog-lightbox <b>alt="Jake the sheep frolics in the lush pasture"</b>&gt;
+  &lt;a href="./img/photo-large.jpg"&gt;
+    View the large photo
+  &lt;/a&gt;
+&lt;/prog-lightbox&gt;
+</code></pre>
 
 <!-- Scaffolding -->
 <template data-matches="prog-lightbox">
-    <dialog id>
-        <form method="dialog">
-            <button type="submit">Close dialog</button>
-        </form>
-        <picture>
-            <img src alt>
-        </picture>
-    </dialog>
+	<dialog id>
+		<form method="dialog">
+			<button type="submit">Close dialog</button>
+		</form>
+		<picture>
+			<img src alt>
+		</picture>
+	</dialog>
 </template>
 <script type="module" defer>
-    import ProgLightbox from '../mjs/prog-lightbox.mjs';
-    window.customElements.define('prog-lightbox', ProgLightbox);
+	import ProgLightbox from '../mjs/prog-lightbox.mjs';
+	window.customElements.define('prog-lightbox', ProgLightbox);
 </script>
